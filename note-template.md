@@ -1,4 +1,4 @@
-# LeetCode-1 Two Sum
+# LeetCode-
 
 题目链接：
 
@@ -12,4 +12,5 @@
 
 ## 测试截图
 
+<!-- ![img](./accept.png) -->
 ![img](./LeetCode-1/accept.png)
