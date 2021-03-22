@@ -32,3 +32,4 @@
 *.app
 
 Solution.cpp
+.DS_store
