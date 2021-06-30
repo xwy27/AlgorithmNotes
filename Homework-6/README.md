@@ -1,4 +1,4 @@
 # Homework 6
 
-- [Package](./Package/README.md)
+- [Package](./Knapsack/README.md)
 - [Investment](./Investment/README.md)
