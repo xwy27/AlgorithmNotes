@@ -55,22 +55,34 @@ public:
 ## 代码
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
 class Solution {
+private:
+    int mi = 0;
+    int ma = 0;
 public:
-    int minPathSum(vector<vector<int>>& grid) {
-        int row = grid.size(), col = grid[0].size();
-        if (row * col == 1) return grid[0][0];
-
-        vector<vector<int>> dp(row, vector<int>(col, 0));
-        dp[0][0] = grid[0][0];
-        for (int i = 1; i < row; ++i)   dp[i][0] = dp[i-1][0] + grid[i][0];
-        for (int j = 1; j < col; ++j)   dp[0][j] = dp[0][j-1] + grid[0][j];
-
-        for (int i = 1; i < row; ++i)
-            for (int j = 1; j < col; ++j)
-                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
-
-        return dp[row-1][col-1];
+    TreeNode* helper(TreeNode* node) {
+        if (node->val > ma)
+            return helper(node->left);
+        else if (node->val < mi)
+            return helper(node->right);
+        else
+            return node;
+    }
+    
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        mi = min(p->val, q->val);
+        ma = max(p->val, q->val);
+        return helper(root);
     }
 };
 ```
